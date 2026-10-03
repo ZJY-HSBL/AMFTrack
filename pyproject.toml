@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amftrack"
+version = "0.1.0"
+description = "Adaptive Motion-Feature Tracking with YOLOv8, OSNet, FSA Kalman filtering, CIoU and GFModel."
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "opencv-python>=4.8",
+  "PyYAML>=6.0",
+  "torch>=2.2",
+  "torchvision>=0.17",
+  "ultralytics>=8.3",
+  "pandas>=2.0",
+  "tqdm>=4.66",
+  "motmetrics>=1.4",
+  "Pillow>=10.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["amftrack*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

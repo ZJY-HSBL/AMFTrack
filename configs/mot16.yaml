@@ -1,0 +1,45 @@
+project:
+  name: AMFTrack-MOT16
+  seed: 42
+
+detector:
+  model: yolov8n.pt
+  person_class_id: 0
+  image_size: 640
+  confidence: 0.25
+  iou_nms: 0.70
+  device: auto
+  train_epochs: 300
+
+reid:
+  osnet_weights: weights/osnet_x1_0_market_cuhk.pth
+  gfmodel_weights: weights/gfmodel_resnet50.pth
+  embedding_dim: 512
+  device: auto
+  normalize: true
+
+tracker:
+  min_detection_confidence: 0.25
+  n_init: 3
+  max_age: 30
+  max_feature_history: 100
+  max_gf_history: 30
+  matching_threshold: 0.86
+  second_stage_ciou_threshold: 0.90
+  appearance_weight: 0.35
+  geometry_weight: 0.30
+  gf_weight: 0.20
+  motion_weight: 0.15
+  mahalanobis_gate: 9.4877
+
+fsa:
+  mu: 0.95
+  confidence_window: 10
+  noise_floor: 0.05
+  std_weight_position: 0.05
+  std_weight_velocity: 0.00625
+
+evaluation:
+  dataset: MOT16
+  fps_warmup: 10
+  mot_iou_threshold: 0.5
