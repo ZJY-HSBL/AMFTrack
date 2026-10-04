@@ -78,7 +78,7 @@ Recommended / 推荐：
 ```bash
 conda create -n amftrack python=3.10 -y
 conda activate amftrack
-pip install -r requirements.txt
+pip install -e .
 pip install -e .
 ```
 
@@ -87,7 +87,7 @@ CUDA-enabled PyTorch should be installed according to the local CUDA version bef
 如果本机已安装与 CUDA 匹配的 PyTorch，可直接执行：
 
 ```bash
-pip install -r requirements.txt
+pip install -e .
 pip install -e .
 ```
 
